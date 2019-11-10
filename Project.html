@@ -1,6 +1,9 @@
 <link rel="stylesheet" href="assets/semantic.min.css">
 <script src="assets/jquery.min.js"></script>
 <script src="assets/semantic.min.js"></script>
+<script src="model/Tds.js"></script>
+<script src="model/Eds.js"></script>
+<script src="model/Client.js"></script>
 <body>
 <h2 class="ui center aligned icon header">
     <i class="circular moon icon"></i>
@@ -11,14 +14,14 @@
         <div class="ui segment">
             <div class="ui top attached label">Configurações</div>
             <div class="ui icon input">
-                <input type="text" placeholder="Atendentes...">
+                <input id="qtdAttendants" type="text" placeholder="Atendentes...">
                 <i class="inverted circular users link icon"></i>
             </div>
             <div class="ui icon input">
-                <input type="text" placeholder="Quantidade...">
+                <input id="attendingTime" type="text" placeholder="Tempo">
                 <i class="inverted circular plus link icon"></i>
             </div>
-            <button class="ui inverted secondary button">
+            <button id="btnStart" class="ui inverted secondary button">
                 <i class="check icon"></i>
                 Confirm
             </button>
@@ -27,20 +30,10 @@
     <div class="eight wide column">
         <div class="ui segment">
             <div class="ui top attached label">Atendentes</div>
-            <div class="ui horizontal list">
+            <div id="attendantsList" class="ui horizontal list">
                 <div class="item">
                     <div class="ui label content">
                     <div class="ui sub header">C-1</div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="ui label content">
-                    <div class="ui sub header">C-2</div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="ui label content">
-                    <div class="ui sub header">C-3</div>
                     </div>
                 </div>
             </div>
@@ -49,20 +42,10 @@
     <div class="sixteen wide column">
         <div class="ui segment">
             <div class="ui top attached label">Fila</div>
-            <div class="ui horizontal list">
+            <div id="queue" class="ui horizontal list">
                 <div class="item">
                     <div class="ui label content">
-                    <div class="ui sub header">C-1</div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="ui label content">
-                    <div class="ui sub header">C-2</div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="ui label content">
-                    <div class="ui sub header">C-3</div>
+                        <div class="ui sub header">C-1</div>
                     </div>
                 </div>
             </div>
@@ -70,3 +53,4 @@
     </div>
 </div>
 </body>
+<script src="Main.js"></script>

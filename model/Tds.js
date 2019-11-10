@@ -1,7 +1,7 @@
 class Tds {
 
     constructor(qtdAttendants, attendingTime) {
-        this.attendingTime = attendingtime; // tempo de atendimento
+        this.attendingTime = attendingTime; // tempo de atendimento
         this.qtdAttendants = qtdAttendants; // quantidade de atendentes
         this.queue = {}; // json com os clientes na fila
         this.attendingQueue = {}; // json com os clientes em atendimento
