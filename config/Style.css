@@ -1,0 +1,33 @@
+#configForm {
+    border: 1.4px solid orange;
+    border-radius: 6px;
+    background-color: rgba(255,255,255,.5);
+}
+
+#configForm > div > div > div > .link.icon {
+    font-size: small;
+}
+
+#configForm > .ui.top.attached.label {
+    top: -1px;
+}
+
+body {
+    background-color: rgba(0,0,0,.1);
+}
+
+#workersForm {
+    border: 1.4px solid blue;
+    border-radius: 6px;
+    background-color: rgba(255,255,255,.5);
+}
+
+#queueForm {
+    border: 1.4px solid teal;
+    border-radius: 6px;
+    background-color: rgba(255,255,255,.5);
+}
+
+#btnStart {
+    margin: 19px 10px 0px 10px;
+}

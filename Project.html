@@ -11,25 +11,35 @@
 </h2>
 <div class="ui grid padded">
     <div class="eight wide column">
-        <div class="ui segment">
-            <div class="ui top attached label">Configurações</div>
-            <div class="ui icon input">
-                <input id="qtdAttendants" type="text" placeholder="Atendentes...">
-                <i class="inverted circular users link icon"></i>
+        <div class="ui segment" id="configForm">
+            <div class="ui top attached label orange">Configurações</div>
+            <div class="ui grid three column" style="margin-top: 1rem !important;">
+                <div class="six wide column">
+                    <label>Atendente(s)</label>
+                    <div class="ui icon input">
+                        <input class="ui small input" id="qtdAttendants" type="text" placeholder="Digite um atentende...">
+                        <i class="inverted circular users link icon"></i>
+                    </div>
+                </div>
+                <div class="six wide column">
+                    <label>Tempo</label>
+                    <div class="ui icon input">
+                        <input class="ui small input" id="attendingTime" type="text" placeholder="Digite um tempo limite...">
+                        <i class="inverted circular plus link icon"></i>
+                    </div>
+                </div>
+                <div class="four wide column">
+                    <button id="btnStart" class="ui inverted small secondary button">
+                        <i class="check icon"></i>
+                        Start
+                    </button>
+                </div>
             </div>
-            <div class="ui icon input">
-                <input id="attendingTime" type="text" placeholder="Tempo">
-                <i class="inverted circular plus link icon"></i>
-            </div>
-            <button id="btnStart" class="ui inverted secondary button">
-                <i class="check icon"></i>
-                Start
-            </button>
         </div>
     </div>
     <div class="eight wide column">
-        <div class="ui segment">
-            <div class="ui top attached label">Atendentes</div>
+        <div class="ui segment" id="workersForm">
+            <div class="ui top attached label blue">Atendentes</div>
             <div id="attendantsList" class="ui horizontal list">
                 <div class="item">
                     <div class="ui label content">
@@ -40,8 +50,8 @@
         </div>
     </div>
     <div class="sixteen wide column">
-        <div class="ui segment">
-            <div class="ui top attached label">Fila</div>
+        <div class="ui segment" id="queueForm">
+            <div class="ui top attached label teal">Fila</div>
             <div id="queue" class="ui horizontal list">
                 <div class="item">
                     <div class="ui label content">
@@ -54,3 +64,4 @@
 </div>
 </body>
 <script src="Main.js"></script>
+<link rel="stylesheet" type="text/css" href="./config/Style.css">
