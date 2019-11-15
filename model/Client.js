@@ -1,8 +1,11 @@
 class Client {
 
-    constructor(id, age, attendant, timeQueue, timeAttend, timeGeneral) {
+    constructor(id,spentTime, age, attendant, timeQueue, timeAttend, timeGeneral) {
         this.id = id;
         this.age = Math.floor(Math.random() * 90) + 1; // idade aleatoria
+        this.spentTimeInAttendment = spentTime;
+        this.countTime = spentTime;
+        this.spentTimeInQueue = 0;
     }
 
     setTimeQueue(timeQueue) {

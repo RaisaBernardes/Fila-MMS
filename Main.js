@@ -1,4 +1,5 @@
 var sequenceArray = [];
+var clientsOut = {};
 
 $( document ).ready(function() {
     $('#queue').html('');
@@ -7,14 +8,14 @@ $( document ).ready(function() {
 
 $('#btnStart').click(function() {
     var qtdAttendants = $('#qtdAttendants').val(); // Pegando o valor do campo de Atendentes
-    var attendingTime = $('#attendingTime').val(); // Pegando o valor do campo de Tempo
+    var attendingTime = Math.floor(Math.random() * 11); // $('#attendingTime').val(); // Pegando o valor do campo de Tempo
 
-    if(qtdAttendants != "" && attendingTime != ""){
-        Tds = new Tds(qtdAttendants, attendingTime);
+    if(qtdAttendants != ""){
+        Tds = new Tds(qtdAttendants);
 
         setInterval(addClientAtQueue, 3000,3); // Colocando um intervalo para que adicione tres clientes (passado como parametro) na fila de 3 em 3 segundos
         
-        setInterval(attendClients, (attendingTime) * 1000); // Colocando um intervalo para que os clientes sejam atendidos
+        setInterval(attendClients, 1000); // Colocando um intervalo para que os clientes sejam atendidos
     }
 });
 
@@ -34,7 +35,7 @@ $('#btnStart').click(function() {
 function addClientAtQueue(qtdClientsToAdd) {
     var index = 0;
     while (index < qtdClientsToAdd) {
-        client = new Client(makeSequence()); // cria cliente
+        client = new Client(makeSequence(),Math.floor(Math.random() * 20) + 1); // cria cliente
         Tds.addClient(client) // Adiciona na fila
         createElement(client);
 
@@ -55,8 +56,14 @@ function addClientAtQueue(qtdClientsToAdd) {
 function attendClients(){
     if(!$.isEmptyObject(Tds.attendingQueue)){
         $.each(Tds.attendingQueue, function(key, client) {
-            Tds.removeClient(client);
-            removeElement(client);
+            if(client.countTime == 0){
+                Tds.removeClient(client);
+                clientsOut[client.id] = client;
+                console.log(clientsOut);
+                removeElement(client);
+            }else{
+                client.countTime--;
+            }
         });
     }
     if(!$.isEmptyObject(Tds.queue)){
@@ -65,7 +72,7 @@ function attendClients(){
                 Tds.attendClient(client);
                 moveElement(client);
             }else{
-                return false;
+                client.spentTimeInQueue++;
             }
         });
     }
